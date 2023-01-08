@@ -1,13 +1,16 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Partials/Root/Navbar";
 
 const RootLayout = () => {
     return (
         <>
-            <div>RootLayout</div>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <Outlet />
+            <div className="bg-slate-200 min-h-screen">
+                <Navbar />
+                <div className="max-w-[90rem] mx-auto px-3 pt-7">
+                    <Outlet />
+                </div>
+            </div>
         </>
     );
 };
