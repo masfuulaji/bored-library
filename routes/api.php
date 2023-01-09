@@ -21,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/category', [CategoryController::class, 'index']);
-Route::post('/addCategory', [CategoryController::class, 'store']);
-Route::post('/updateCategory', [CategoryController::class, 'update']);
+Route::post('/category', [CategoryController::class, 'store']);
+Route::put('/category/{id}', [CategoryController::class, 'update']);
