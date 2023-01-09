@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/category', [CategoryController::class, 'index'])->name('category');
-Route::get('/addCategory', [CategoryController::class, 'store'])->name('addCategory');
-Route::get('/updateCategory', [CategoryController::class, 'update'])->name('updateCategory');
+Route::get('/category', [CategoryController::class, 'index']);
+Route::post('/addCategory', [CategoryController::class, 'store']);
+Route::post('/updateCategory', [CategoryController::class, 'update']);
