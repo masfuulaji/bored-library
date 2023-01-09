@@ -20,6 +20,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Category
 Route::get('/category', [CategoryController::class, 'index']);
 Route::post('/category', [CategoryController::class, 'store']);
-Route::put('/category/{id}', [CategoryController::class, 'update']);
+Route::get('/category/{id}', [CategoryController::class, 'show']);
+Route::post('/category/{id}', [CategoryController::class, 'update']);
+Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
+
+// Language
+Route::get('/language', [LanguageController::class, 'index']);
+Route::post('/language', [LanguageController::class, 'store']);
+Route::get('/language/{id}', [LanguageController::class, 'show']);
+Route::post('/language/{id}', [LanguageController::class, 'update']);
+Route::delete('/language/{id}', [LanguageController::class, 'destroy']);
