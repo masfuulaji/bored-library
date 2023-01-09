@@ -18,6 +18,8 @@ import Home from "./Pages/Root/Home";
 import Book from "./Pages/Root/Book";
 import Dashboard from "./Pages/Admin/Dashboard";
 import BookAdmin from "./Pages/Admin/Book";
+import Category from "./Pages/Admin/Master/Category";
+import Language from "./Pages/Admin/Master/Language";
 
 const Router = createBrowserRouter(
     createRoutesFromElements(
@@ -29,6 +31,8 @@ const Router = createBrowserRouter(
             </Route>
             <Route path="/admin" element={<AdminLayout />}>
                 <Route index element={<Dashboard />} />
+                <Route path="category" element={<Category />} />
+                <Route path="language" element={<Language />} />
                 <Route path="book" element={<BookAdmin />} />
             </Route>
             <Route path="*" element={<h1>404</h1>} />

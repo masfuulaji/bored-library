@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { FaReact, FaHome, FaAngleDown, FaBorderAll, FaDollyFlatbed } from "react-icons/fa";
 
 function Sidebar() {
     const menus = [
@@ -8,40 +9,40 @@ function Sidebar() {
             name: "Dashboard",
             link: "/admin",
             is_parent: false,
-            icon: ["fas", "home"],
+            icon: <FaHome size={20} />,
         },
         {
             id: "master",
             name: "Master",
             link: "#",
             is_parent: true,
-            icon: ["far", "bell"],
+            icon: <FaBorderAll size={20} />,
             children: [
                 {
-                    name: "Year",
-                    link: "/admin",
+                    name: "Category",
+                    link: "/admin/category",
                 },
                 {
-                    name: "major",
-                    link: "/admin/book",
+                    name: "Language",
+                    link: "/admin/language",
                 },
             ],
         },
         {
             id: "about",
             name: "About",
-            link: "/admin/category",
+            link: "/admin/about",
             is_parent: false,
-            icon: ["fas", "home"],
+            icon: <FaDollyFlatbed size={20} />,
         },
     ];
 
-    const [linkActive, setLinkActive] = useState('');
+    const [linkActive, setLinkActive] = useState("");
 
     const onMenu = (menu) => {
-        if(linkActive === menu){
-            setLinkActive('')
-        }else{
+        if (linkActive === menu) {
+            setLinkActive("");
+        } else {
             setLinkActive(menu);
         }
     };
@@ -58,18 +59,18 @@ function Sidebar() {
                                 >
                                     <div className="flex items-center w-full">
                                         <div className="absolute inset-y-0 left-0 flex items-center pl-2">
-                                            A
+                                            {menu.icon}
                                         </div>
-                                        <Link
+                                        <NavLink
                                             to={menu.link}
                                             className="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-slate-200 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-slate-200 font-bold"
                                         >
                                             {menu.name}
-                                        </Link>
+                                        </NavLink>
                                     </div>
                                     {menu.is_parent && (
                                         <button className="absolute bottom-1 right-0 block items-center p-1">
-                                            B
+                                            <FaAngleDown size={20} />
                                         </button>
                                     )}
                                 </div>
@@ -87,13 +88,17 @@ function Sidebar() {
                                                 menu.children.map(
                                                     (child, childI) => {
                                                         return (
-                                                            <li key={child.name}>
-                                                                <Link
-                                                                    to={child.link}
+                                                            <li
+                                                                key={child.name}
+                                                            >
+                                                                <NavLink
+                                                                    to={
+                                                                        child.link
+                                                                    }
                                                                     className="inline-block w-full px-4 py-2 text-xs rounded hover:bg-slate-200  focus:outline-none focus:ring-1 focus:ring-gray-500 mb-1"
                                                                 >
-                                                                    One
-                                                                </Link>
+                                                                    {child.name}
+                                                                </NavLink>
                                                             </li>
                                                         );
                                                     }
