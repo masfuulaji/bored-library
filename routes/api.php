@@ -33,3 +33,7 @@ Route::post('/language', [LanguageController::class, 'store']);
 Route::get('/language/{id}', [LanguageController::class, 'show']);
 Route::post('/language/{id}', [LanguageController::class, 'update']);
 Route::delete('/language/{id}', [LanguageController::class, 'destroy']);
+
+Route::get('/{any}', function () {
+    return response()->json([],404);
+})->where('any', '.*');

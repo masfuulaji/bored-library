@@ -1,4 +1,6 @@
 import "./bootstrap";
+import "../css/datatable.css"
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import ReactDOM from "react-dom/client";
 
